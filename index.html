@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Acta de Entrega del Servicio</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f4f4;
+    }
+    .container {
+      max-width: 600px;
+      margin: auto;
+      padding: 1rem;
+      background-color: #fff;
+    }
+    h2 {
+      background-color: #003f3f;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+      margin: -1rem -1rem 1rem -1rem;
+    }
+    label {
+      display: block;
+      margin-top: 0.8rem;
+      font-weight: bold;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 0.5rem;
+      margin-top: 0.3rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .checkbox-group {
+      display: flex;
+      gap: 1rem;
+      margin-top: 0.5rem;
+    }
+    .section {
+      margin-top: 2rem;
+      padding-top: 1rem;
+      border-top: 2px solid #ccc;
+    }
+    table {
+      width: 100%;
+      margin-top: 1rem;
+      border-collapse: collapse;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 0.5rem;
+      text-align: left;
+    }
+    .submit-btn {
+      background-color: #b8bcbc;
+      color: #444;
+      padding: 0.7rem;
+      width: 100%;
+      border: none;
+      margin-top: 1rem;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+    @media (max-width: 600px) {
+      .checkbox-group {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <form class="container">
+    <h2>ACTA DE ENTREGA DEL SERVICIO</h2>
+
+    <label for="ordenCambio">Orden de Cambio</label>
+    <input type="text" id="ordenCambio" name="ordenCambio">
+
+    <label for="codSucursal">Código Suc / Admin</label>
+    <input type="text" id="codSucursal" name="codSucursal">
+
+    <label for="sucursalAdmin">Sucursal/Admin</label>
+    <input type="text" id="sucursalAdmin" name="sucursalAdmin" value="Edificio no registrado">
+
+    <label for="emailUsuario">Email Usuario</label>
+    <input type="email" id="emailUsuario" name="emailUsuario">
+
+    <label for="usuarioRed">Usuario de Red</label>
+    <input type="text" id="usuarioRed" name="usuarioRed" placeholder="usuario@bancolombia.com.co">
+
+    <div class="checkbox-group">
+      <label><input type="checkbox" name="perifericos"> Periféricos</label>
+      <label><input type="checkbox" name="kitTecnologico"> Kit Tecnológico</label>
+    </div>
+
+    <div class="section">
+      <h3>EQUIPOS INSTALADOS O INTERVENIDOS</h3>
+      <label>Placa</label><input type="text">
+      <label>Serial</label><input type="text">
+      <label>Tipo de equipo</label><input type="text">
+      <label>Hostname</label><input type="text">
+      <label>Ctlag</label><select><option value="">Seleccionar</option></select>
+      <label>System Role</label><select><option value="">Seleccionar</option></select>
+    </div>
+
+    <div class="section">
+      <h3>EQUIPOS RETIRADOS</h3>
+      <label>Placa</label><input type="text">
+      <label>Serial</label><input type="text">
+      <label>Tipo de equipo</label><input type="text">
+      <label>Hostname</label><input type="text">
+      <label>Estado</label><select><option value="">Seleccionar</option></select>
+      <div class="checkbox-group">
+        <label><input type="checkbox" name="noRetira"> No se retira elemento</label>
+        <label><input type="checkbox" name="noAsigna"> No se asigna equipo</label>
+      </div>
+    </div>
+
+    <div class="section">
+      <h3>CONSOLIDADO DE EQUIPOS A INTERVENIR / ASIGNAR</h3>
+      <table>
+        <thead>
+          <tr><th>Elemento</th><th>Placa In</th><th>Serial In</th><th>Usuario</th></tr>
+        </thead>
+        <tbody>
+          <tr><td colspan="4">Sin datos aún</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <label for="observaciones">Observaciones</label>
+    <textarea id="observaciones" rows="4" placeholder="Use este espacio para confirmar la cantidad de equipos a retirar..."></textarea>
+
+    <button type="submit" class="submit-btn" disabled>Enviar</button>
+  </form>
+</body>
+</html>
