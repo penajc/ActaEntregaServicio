@@ -5,18 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Acta de Entrega del Servicio</title>
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       font-family: sans-serif;
       margin: 0;
-      padding: 0;
-      background-color: #f0f4f4;
+      background-color: #003f3f;
     }
+
     .container {
-      max-width: 600px;
+      max-width: 100%;
       margin: auto;
       padding: 1rem;
       background-color: #fff;
+      min-height: 100vh;
     }
+
     h2 {
       background-color: #003f3f;
       color: white;
@@ -24,38 +30,48 @@
       text-align: center;
       margin: -1rem -1rem 1rem -1rem;
     }
+
     label {
       display: block;
-      margin-top: 0.8rem;
+      margin-top: 1rem;
       font-weight: bold;
     }
+
     input, select, textarea {
       width: 100%;
       padding: 0.5rem;
       margin-top: 0.3rem;
       border: 1px solid #ccc;
       border-radius: 5px;
+      font-size: 1rem;
     }
+
     .checkbox-group {
       display: flex;
+      flex-wrap: wrap;
       gap: 1rem;
       margin-top: 0.5rem;
     }
+
     .section {
       margin-top: 2rem;
       padding-top: 1rem;
       border-top: 2px solid #ccc;
     }
+
     table {
       width: 100%;
       margin-top: 1rem;
       border-collapse: collapse;
+      font-size: 0.9rem;
     }
+
     th, td {
       border: 1px solid #ccc;
       padding: 0.5rem;
       text-align: left;
     }
+
     .submit-btn {
       background-color: #b8bcbc;
       color: #444;
@@ -66,9 +82,17 @@
       border-radius: 5px;
       font-size: 1rem;
     }
-    @media (max-width: 600px) {
-      .checkbox-group {
-        flex-direction: column;
+
+    textarea {
+      resize: vertical;
+    }
+
+    @media (max-width: 480px) {
+      h2 {
+        font-size: 1.2rem;
+      }
+      input, select, textarea {
+        font-size: 1rem;
       }
     }
   </style>
