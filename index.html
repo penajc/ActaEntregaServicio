@@ -2,151 +2,171 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Acta de Entrega del Servicio</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background-color: #ffffff;
+      font-family: sans-serif;
       margin: 0;
       padding: 0;
-      color: #003f3f;
+      background-color: #f0f4f4;
     }
-    header {
+    .container {
+      max-width: 600px;
+      margin: auto;
+      padding: 1rem;
+      background-color: #fff;
+    }
+    h2 {
       background-color: #003f3f;
       color: white;
-      padding: 15px;
+      padding: 1rem;
       text-align: center;
-      font-weight: bold;
-    }
-    section {
-      padding: 15px;
-    }
-    details {
-      margin-bottom: 12px;
-      border: 1px solid #003f3f;
-      border-radius: 6px;
-      padding: 10px;
-    }
-    summary {
-      font-weight: bold;
-      cursor: pointer;
-      color: #003f3f;
+      margin: -1rem -1rem 1rem -1rem;
     }
     label {
       display: block;
-      margin-top: 10px;
+      margin-top: 0.8rem;
       font-weight: bold;
     }
-    input[type="text"], select, textarea {
+    input, select, textarea {
       width: 100%;
-      padding: 6px;
-      margin-top: 4px;
-      box-sizing: border-box;
+      padding: 0.5rem;
+      margin-top: 0.3rem;
       border: 1px solid #ccc;
-      border-radius: 4px;
+      border-radius: 5px;
     }
-    .form-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
+    .checkbox-group {
+      display: flex;
+      gap: 1rem;
+      margin-top: 0.5rem;
+    }
+    .accordion {
+      margin-top: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+    .accordion-header {
+      background-color: #e0eaea;
+      padding: 0.8rem;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .accordion-content {
+      padding: 1rem;
+      display: none;
+      background-color: #fff;
+      border-top: 1px solid #ccc;
+    }
+    .accordion.active .accordion-content {
+      display: block;
+    }
+    table {
+      width: 100%;
+      margin-top: 1rem;
+      border-collapse: collapse;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 0.5rem;
+      text-align: left;
+    }
+    .submit-btn {
+      background-color: #b8bcbc;
+      color: #444;
+      padding: 0.7rem;
+      width: 100%;
+      border: none;
+      margin-top: 1rem;
+      border-radius: 5px;
+      font-size: 1rem;
     }
     @media (max-width: 600px) {
-      .form-row {
-        grid-template-columns: 1fr;
+      .checkbox-group {
+        flex-direction: column;
       }
-    }
-    button {
-      background-color: #003f3f;
-      color: white;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 4px;
-      font-size: 16px;
-      cursor: pointer;
-      display: block;
-      margin: 20px auto;
-    }
-    button:disabled {
-      background-color: #ccc;
-      cursor: not-allowed;
     }
   </style>
 </head>
 <body>
-  <header>ACTA DE ENTREGA DEL SERVICIO BANCOLOMBIA</header>
-  <section>
-    <details open>
-      <summary>Información General</summary>
-      <div class="form-row">
-        <div>
-          <label for="ordenCambio">Orden de Cambio</label>
-          <input type="text" id="ordenCambio" name="ordenCambio" />
-        </div>
-        <div>
-          <label for="codSucursal">Código Suc / Admin</label>
-          <input type="text" id="codSucursal" name="codSucursal" />
-        </div>
-        <div>
-          <label for="sucursalAdmin">Sucursal/Admin</label>
-          <input type="text" id="sucursalAdmin" name="sucursalAdmin" value="Edificio no registrado" />
-        </div>
-        <div>
-            <label for="emailUsuario">Email Usuario</label>
-            <input type="text" id="emailUsuario" name="emailUsuario" />      
-        </div>
-        <div>
-            <label for="usuarioRed">Usuario de Red</label>
-            <input type="text" id="usuarioRed" name="usuarioRed" />
-        </div>
-        </div>  
-    </details>
+  <form class="container">
+    <h2>ACTA DE ENTREGA DEL SERVICIO</h2>
 
-    <details>
-      <summary>Equipos Instalados o Intervenidos</summary>
-      <div class="form-row">
-        <div>
-          <label for="placa">Placa</label>
-          <input type="text" id="placa" />
-        </div>
-        <div>
-          <label for="serial">Serial</label>
-          <input type="text" id="serial" />
+    <label for="ordenCambio">Orden de Cambio</label>
+    <input type="text" id="ordenCambio" name="ordenCambio">
+
+    <label for="codSucursal">Código Suc / Admin</label>
+    <input type="text" id="codSucursal" name="codSucursal">
+
+    <label for="sucursalAdmin">Sucursal/Admin</label>
+    <input type="text" id="sucursalAdmin" name="sucursalAdmin" value="Edificio no registrado">
+
+    <label for="emailUsuario">Email Usuario</label>
+    <input type="email" id="emailUsuario" name="emailUsuario">
+
+    <label for="usuarioRed">Usuario de Red</label>
+    <input type="text" id="usuarioRed" name="usuarioRed" placeholder="usuario@bancolombia.com.co">
+
+    <div class="checkbox-group">
+      <label><input type="checkbox" name="perifericos"> Periféricos</label>
+      <label><input type="checkbox" name="kitTecnologico"> Kit Tecnológico</label>
+    </div>
+
+    <div class="accordion">
+      <div class="accordion-header">EQUIPOS INSTALADOS O INTERVENIDOS</div>
+      <div class="accordion-content">
+        <label>Placa</label><input type="text">
+        <label>Serial</label><input type="text">
+        <label>Tipo de equipo</label><input type="text">
+        <label>Hostname</label><input type="text">
+        <label>Ctlag</label><select><option value="">Seleccionar</option></select>
+        <label>System Role</label><select><option value="">Seleccionar</option></select>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <div class="accordion-header">EQUIPOS RETIRADOS</div>
+      <div class="accordion-content">
+        <label>Placa</label><input type="text">
+        <label>Serial</label><input type="text">
+        <label>Tipo de equipo</label><input type="text">
+        <label>Hostname</label><input type="text">
+        <label>Estado</label><select><option value="">Seleccionar</option></select>
+        <div class="checkbox-group">
+          <label><input type="checkbox" name="noRetira"> No se retira elemento</label>
+          <label><input type="checkbox" name="noAsigna"> No se asigna equipo</label>
         </div>
       </div>
-      <label for="tipoEquipo">Tipo de equipo</label>
-      <input type="text" id="tipoEquipo" />
-      <label for="hostname">Hostname</label>
-      <input type="text" id="hostname" />
-    </details>
+    </div>
 
-    <details>
-      <summary>Equipos Retirados</summary>
-      <div class="form-row">
-        <div>
-          <label for="placaR">Placa</label>
-          <input type="text" id="placaR" />
-        </div>
-        <div>
-          <label for="serialR">Serial</label>
-          <input type="text" id="serialR" />
-        </div>
+    <div class="accordion">
+      <div class="accordion-header">CONSOLIDADO DE EQUIPOS A INTERVENIR / ASIGNAR</div>
+      <div class="accordion-content">
+        <table>
+          <thead>
+            <tr><th>Elemento</th><th>Placa In</th><th>Serial In</th><th>Usuario</th></tr>
+          </thead>
+          <tbody>
+            <tr><td colspan="4">Sin datos aún</td></tr>
+          </tbody>
+        </table>
       </div>
-      <label for="estado">Estado</label>
-      <select id="estado">
-        <option value="">Seleccione...</option>
-        <option value="bueno">Bueno</option>
-        <option value="dañado">Dañado</option>
-      </select>
-    </details>
+    </div>
 
-    <details>
-      <summary>Observaciones</summary>
-      <label for="observaciones">Observaciones</label>
-      <textarea id="observaciones" rows="5"></textarea>
-    </details>
+    <label for="observaciones">Observaciones</label>
+    <textarea id="observaciones" rows="4" placeholder="Use este espacio para confirmar la cantidad de equipos a retirar..."></textarea>
 
-    <button type="submit">Enviar</button>
-  </section>
+    <button type="submit" class="submit-btn" disabled>Enviar</button>
+  </form>
+
+  <script>
+    const accordions = document.querySelectorAll('.accordion');
+    accordions.forEach(acc => {
+      acc.querySelector('.accordion-header').addEventListener('click', () => {
+        acc.classList.toggle('active');
+      });
+    });
+  </script>
 </body>
 </html>
