@@ -2,188 +2,151 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Acta de Entrega del Servicio</title>
   <style>
-    * {
-      box-sizing: border-box;
-    }
-
     body {
-      font-family: sans-serif;
+      font-family: Arial, sans-serif;
+      background-color: #ffffff;
       margin: 0;
-      background-color: #003f3f;
+      padding: 0;
+      color: #003f3f;
     }
-
-    .container {
-      max-width: 100%;
-      margin: auto;
-      padding: 1rem;
-      background-color: #fff;
-      min-height: 100vh;
-    }
-
-    h2 {
+    header {
       background-color: #003f3f;
       color: white;
-      padding: 1rem;
+      padding: 15px;
       text-align: center;
-      margin: -1rem -1rem 1rem -1rem;
-      font-size: 1.5rem;
-    }
-
-    h3 {
-      background-color: #e5f0f0;
-      color: #003f3f;
-      padding: 0.5rem;
-      margin-top: 2rem;
-      border-left: 5px solid #003f3f;
-    }
-
-    label {
-      display: block;
-      margin-top: 1rem;
       font-weight: bold;
     }
-
-    input, select, textarea {
+    section {
+      padding: 15px;
+    }
+    details {
+      margin-bottom: 12px;
+      border: 1px solid #003f3f;
+      border-radius: 6px;
+      padding: 10px;
+    }
+    summary {
+      font-weight: bold;
+      cursor: pointer;
+      color: #003f3f;
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+    input[type="text"], select, textarea {
       width: 100%;
-      padding: 0.5rem;
-      margin-top: 0.3rem;
+      padding: 6px;
+      margin-top: 4px;
+      box-sizing: border-box;
       border: 1px solid #ccc;
-      border-radius: 5px;
-      font-size: 1rem;
+      border-radius: 4px;
     }
-
-    .checkbox-group {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      margin-top: 1rem;
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
     }
-
-    .checkbox-group label {
-      font-weight: normal;
+    @media (max-width: 600px) {
+      .form-row {
+        grid-template-columns: 1fr;
+      }
     }
-
-    .section {
-      margin-top: 2rem;
-      padding-top: 1rem;
-      border-top: 2px solid #ccc;
-    }
-
-    table {
-      width: 100%;
-      margin-top: 1rem;
-      border-collapse: collapse;
-      font-size: 0.95rem;
-    }
-
-    th, td {
-      border: 1px solid #ccc;
-      padding: 0.6rem;
-      text-align: left;
-    }
-
-    th {
+    button {
       background-color: #003f3f;
       color: white;
-    }
-
-    .submit-btn {
-      background-color: #b8bcbc;
-      color: #444;
-      padding: 0.7rem;
-      width: 100%;
+      padding: 10px 20px;
       border: none;
-      margin-top: 2rem;
-      border-radius: 5px;
-      font-size: 1rem;
+      border-radius: 4px;
+      font-size: 16px;
+      cursor: pointer;
+      display: block;
+      margin: 20px auto;
     }
-
-    textarea {
-      resize: vertical;
-    }
-
-    @media (max-width: 480px) {
-      h2 {
-        font-size: 1.2rem;
-      }
-      h3 {
-        font-size: 1rem;
-      }
-      input, select, textarea {
-        font-size: 1rem;
-      }
-      .checkbox-group {
-        flex-direction: column;
-      }
+    button:disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
     }
   </style>
 </head>
 <body>
-  <form class="container">
-    <h2>ACTA DE ENTREGA DEL SERVICIO</h2>
+  <header>ACTA DE ENTREGA DEL SERVICIO</header>
+  <section>
+    <details open>
+      <summary>Información General</summary>
+      <div class="form-row">
+        <div>
+          <label for="ordenCambio">Orden de Cambio</label>
+          <input type="text" id="ordenCambio" name="ordenCambio" />
+        </div>
+        <div>
+          <label for="codSucursal">Código Suc / Admin</label>
+          <input type="text" id="codSucursal" name="codSucursal" />
+        </div>
+        <div>
+          <label for="sucursalAdmin">Sucursal/Admin</label>
+          <input type="text" id="sucursalAdmin" name="sucursalAdmin" value="Edificio no registrado" />
+        </div>
+        <div>
+            <label for="emailUsuario">Email Usuario</label>
+            <input type="email" id="emailUsuario" name="emailUsuario" />      
+        </div>
+        <div>
+            <label for="usuarioRed">Usuario de Red</label>
+            <input type="text" id="usuarioRed" name="usuarioRed" />
+        </div>
+        </div>  
+    </details>
 
-    <label for="ordenCambio">Orden de Cambio</label>
-    <input type="text" id="ordenCambio" name="ordenCambio">
-
-    <label for="codSucursal">Código Suc / Admin</label>
-    <input type="text" id="codSucursal" name="codSucursal">
-
-    <label for="sucursalAdmin">Sucursal/Admin</label>
-    <input type="text" id="sucursalAdmin" name="sucursalAdmin" value="Edificio no registrado">
-
-    <label for="emailUsuario">Email Usuario</label>
-    <input type="email" id="emailUsuario" name="emailUsuario">
-
-    <label for="usuarioRed">Usuario de Red</label>
-    <input type="text" id="usuarioRed" name="usuarioRed" placeholder="usuario@bancolombia.com.co">
-
-    <div class="checkbox-group">
-      <label><input type="checkbox" name="perifericos"> Periféricos</label>
-      <label><input type="checkbox" name="kitTecnologico"> Kit Tecnológico</label>
-    </div>
-
-    <div class="section">
-      <h3>EQUIPOS INSTALADOS O INTERVENIDOS</h3>
-      <label>Placa</label><input type="text">
-      <label>Serial</label><input type="text">
-      <label>Tipo de equipo</label><input type="text">
-      <label>Hostname</label><input type="text">
-      <label>Ctlag</label><select><option value="">Seleccionar</option></select>
-      <label>System Role</label><select><option value="">Seleccionar</option></select>
-    </div>
-
-    <div class="section">
-      <h3>EQUIPOS RETIRADOS</h3>
-      <label>Placa</label><input type="text">
-      <label>Serial</label><input type="text">
-      <label>Tipo de equipo</label><input type="text">
-      <label>Hostname</label><input type="text">
-      <label>Estado</label><select><option value="">Seleccionar</option></select>
-      <div class="checkbox-group">
-        <label><input type="checkbox" name="noRetira"> No se retira elemento</label>
-        <label><input type="checkbox" name="noAsigna"> No se asigna equipo</label>
+    <details>
+      <summary>Equipos Instalados o Intervenidos</summary>
+      <div class="form-row">
+        <div>
+          <label for="placa">Placa</label>
+          <input type="text" id="placa" />
+        </div>
+        <div>
+          <label for="serial">Serial</label>
+          <input type="text" id="serial" />
+        </div>
       </div>
-    </div>
+      <label for="tipoEquipo">Tipo de equipo</label>
+      <input type="text" id="tipoEquipo" />
+      <label for="hostname">Hostname</label>
+      <input type="text" id="hostname" />
+    </details>
 
-    <div class="section">
-      <h3>CONSOLIDADO DE EQUIPOS A INTERVENIR / ASIGNAR</h3>
-      <table>
-        <thead>
-          <tr><th>Elemento</th><th>Placa In</th><th>Serial In</th><th>Usuario</th></tr>
-        </thead>
-        <tbody>
-          <tr><td colspan="4">Sin datos aún</td></tr>
-        </tbody>
-      </table>
-    </div>
+    <details>
+      <summary>Equipos Retirados</summary>
+      <div class="form-row">
+        <div>
+          <label for="placaR">Placa</label>
+          <input type="text" id="placaR" />
+        </div>
+        <div>
+          <label for="serialR">Serial</label>
+          <input type="text" id="serialR" />
+        </div>
+      </div>
+      <label for="estado">Estado</label>
+      <select id="estado">
+        <option value="">Seleccione...</option>
+        <option value="bueno">Bueno</option>
+        <option value="dañado">Dañado</option>
+      </select>
+    </details>
 
-    <label for="observaciones">Observaciones</label>
-    <textarea id="observaciones" rows="4" placeholder="Use este espacio para confirmar la cantidad de equipos a retirar..."></textarea>
+    <details>
+      <summary>Observaciones</summary>
+      <label for="observaciones">Observaciones</label>
+      <textarea id="observaciones" rows="5"></textarea>
+    </details>
 
-    <button type="submit" class="submit-btn" disabled>Enviar</button>
-  </form>
+    <button type="submit">Enviar</button>
+  </section>
 </body>
 </html>
